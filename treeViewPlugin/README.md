@@ -1,8 +1,6 @@
 ---
 layout: post
 title: New Post
-permalink: new-page.html
-description: Some Description
 date: 2016-01-07 13:59:55 +08:00
 tags: ["JavaScript", "Plugin", "插件"]
 ---
