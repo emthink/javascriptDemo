@@ -7,6 +7,9 @@
 	background: #ddd;
 	z-index: 20;
 }
+.spa-treeview-wrapper a {
+    text-decoration: none;
+}
 
 .spa-treeview-list-groups {
 	/*position: relative;
@@ -53,7 +56,7 @@
 	width: 100%;
 	display: none;
 }
-.spa-treeview-contacts-list {
+.spa-treeview-contacts-list-name {
 	margin-top: 3px;
     margin-left: 20px;
     margin-bottom: 3px;

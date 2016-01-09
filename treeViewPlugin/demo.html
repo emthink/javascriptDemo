@@ -24,77 +24,77 @@
 	<div class="container">
 		<div class="treeviewCont"></div>
 	</div>
+	<span id="busuanzi_container_site_pv">
+    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+	</span>
 	<script src="./js/jquery-1.11.3.js"></script>
 	<script src="./js/js-treeview-plugin.js"></script>
+	<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 	<script>
 		$(function() {
 			var tree = $('.treeviewCont');
-			treeViewPlugin.initModule(tree);
-			treeViewPlugin.addParents(
-			[
+            var data = [
                 {
-                    name: 'Betty',
+                    name: '一级菜单1',
                     id: 'id_01'
                 },
                 {
-                    name: 'Mike',
+                    name: '一级菜单2',
                     id: 'id_02'
                 },
                 {
-                    name: 'Pebbles',
+                    name: '一级菜单3',
                     id: 'id_03'
                 },
                 {
-                    name: 'Wilma',
+                    name: '一级菜单4',
                     id: 'id_04'
-                }
-            ]);
-            treeViewPlugin.addChild(
-            [
-                {
-                    pId: 'id_01',
-                    name: 'Betty',
-                    id: 'id_01_01'
                 },
                 {
                     pId: 'id_01',
-                    name: 'Mike',
-                    id: 'id_01_02'
-                },
-                {
-                    pId: 'id_03',
-                    name: 'Pebbles',
-                    id: 'id_03_01'
-                },
-                {
-                    pId: 'id_04',
-                    name: 'Wilma',
-                    id: 'id_04_01'
-                }
-            ]);
-            treeViewPlugin.addChildNode(
-            [
-                {
-                    pId: 'id_01',
-                    name: 'Btrey',
+                    name: '二级菜单1001',
                     id: 'id_01_001'
                 },
                 {
                     pId: 'id_01',
-                    name: 'Hans',
-                    id: 'id_01_002'
+                    name: '二级菜单102',
+                    id: 'id_01_02'
                 },
                 {
                     pId: 'id_03',
-                    name: 'wekous',
+                    name: '二级菜单3001',
                     id: 'id_03_001'
                 },
                 {
                     pId: 'id_04',
-                    name: 'Wimaka',
+                    name: '二级菜单4001',
                     id: 'id_04_001'
+                },
+                {
+                    pId: 'id_01',
+                    name: '二级菜单1002',
+                    id: 'id_01_002'
+                },
+                {
+                    pId: 'id_03',
+                    name: '二级菜单3002',
+                    id: 'id_03_002'
+                },
+                {
+                    pId: 'id_04',
+                    name: '二级菜单4002',
+                    id: 'id_04_002'
+                },
+                {
+                    pId: 'id_01_02',
+                    name: '三级菜单12001',
+                    id: 'id_01_02_001'
                 }
-            ]);
+            ];
+			treeViewPlugin.initModule(tree);
+            treeViewPlugin.setData(data);
+			
 		});
 	</script>
 </body>
