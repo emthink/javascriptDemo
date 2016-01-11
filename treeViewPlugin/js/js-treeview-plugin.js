@@ -28,7 +28,7 @@ var treeViewPlugin = (function() {
 		$append_target: null,
 	},
 	jqueryMap = {},
-	setJqueryMap, addGroup, addParents, addOne addChildren, addChildNode, configModule, initModule, setData;
+	setJqueryMap, addGroup, addParents, addOne, addChildren, addChildNode, configModule, initModule, setData;
 
 	setJqueryMap = function() {
 		var $append_target = stateMap.$append_target,
@@ -122,7 +122,7 @@ var treeViewPlugin = (function() {
                         + '" data-id="' + _data[id].id
                         + '" data-group="' + _data[id].name
                         + '" title="' + _data[id].name + '">'
-                        + '<span class="childIcon icon-closed"></span><a href="javascript:void(0);" class="spa-data-item">'
+                        + '<span class="childIcon icon-opened"></span><a href="javascript:void(0);" class="spa-data-item">'
                         + _data[id].name
                         + '</a><span class="icon-nochecked"></span><div class="spa-treeview-list-contacts">'
                         + '<span class="last"></span>'
@@ -191,7 +191,7 @@ var treeViewPlugin = (function() {
         var n = $(this).next();
         if (n.hasClass('icon-checked') || n.hasClass('icon-nochecked')) {
             n.hasClass("icon-checked")
-                ? n.removeClass("icon-checked").addClass("icon-nochecked") && n.parents('.spa-treeview-anchor').children('.icon-checked').removeClass("icon-checked").addClass("icon-nochecked")
+                ? n.removeClass("icon-checked").addClass("icon-nochecked") && n.parent('.spa-treeview-anchor').find('.icon-checked').removeClass("icon-checked").addClass("icon-nochecked")
                 : n.removeClass("icon-nochecked").addClass("icon-checked") && n.parents('.spa-treeview-anchor').children('.icon-nochecked').removeClass("icon-nochecked").addClass("icon-checked");
         }
         return;

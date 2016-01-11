@@ -180,13 +180,8 @@ treeViewPlugin，一个可以生成任意多级树列表的js插件，使用了j
 		<div class="container">
 			<div class="treeviewCont"></div>
 		</div>
-		<span id="busuanzi_container_site_pv">
-	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
-		</span>
 		<script src="./js/jquery-1.11.3.js"></script>
 		<script src="./js/js-treeview-plugin.js"></script>
-		<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 		<script>
 			$(function() {
 				var tree = $('.treeviewCont');
