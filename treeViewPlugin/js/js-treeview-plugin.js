@@ -28,7 +28,7 @@ var treeViewPlugin = (function() {
 		$append_target: null,
 	},
 	jqueryMap = {},
-	setJqueryMap, addGroup, addParents, addOne addChildren, addChildNode, configModule, initModule, setData;
+	setJqueryMap, addGroup, addParents, addOne, addChildren, addChildNode, configModule, initModule, setData;
 
 	setJqueryMap = function() {
 		var $append_target = stateMap.$append_target,
