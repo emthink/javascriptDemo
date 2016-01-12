@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sliderPhotoPlugin</title>
+	<link rel="stylesheet" href="./css/sliderPhoto.css">
+	<style>
+		.div_items {
+			width: 80%;
+			height: 500px;
+			list-style: none;
+		}
+		.div_item {
+			list-style: none;
+			display: inline-block;
+			width: 200px;
+			margin-right: 20px;
+			height: 200px;
+		}
+		.div_item img {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h1>The sliderPhotoPlugin Demo</h1>
+	<h2>点击图片打开缩略展示</h2>
+	<ul class="div_items">
+		
+	</ul>
+	<div class="sliderPhoto" id="sliderPhoto">
+	    <div class="photoInfo">
+	        <h3 class="photo_title"></h3>
+	        <p><span class="createTime"></span></p>
+	    </div>
+	    <div class="closeSlider close"></div>
+	    <div class="scrolltab" id="scrolltabPhoto">
+	        <span id="bBtnLeft" class="bBtnLeftBan"></span>
+	        <span id="bBtnRight" class="bBtnRight"></span>
+	        <ul class="ulBigPic">           
+	            
+	        </ul>
+	        <h3 class="photoNums">
+	            <span class="cur_num"></span><span>&nbsp;&#47;&nbsp;</span><span class="total_nums"></span>
+	        </h3>
+	        <!--ulBigPic end-->
+	        <div class="smallPicBox">
+	            <div class="smallPic">
+	                <ul class="ulSmallPic" style="" rel="stop">
+	                                   
+	                </ul>
+	            </div>
+	            <span id="sBtnLeft" class="sBtnLeftBan"></span>
+	            <span id="sBtnRight" class="sBtnRight"></span>
+	        </div><!--dSmallPicBox end-->
+	    </div>
+	</div>
+	<div id="bg_modal"></div>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/sliderPhoto.js"></script>
+	<script>
+		$(function() {
+			var list = [
+				{
+					id: '1',
+					title: '前端知识结构',
+					img: 'http://blog-resource.bj.bcebos.com/photo/front-end.png',
+				},
+				{
+					id: '2',
+					title: 'jQuery知识点',
+					img: 'http://blog-resource.bj.bcebos.com/photo/jquery.png'
+				},
+				{
+					id: '3',
+					title: '计算机网络五层结构',
+					img: 'http://blog-resource.bj.bcebos.com/photo/netLayer.jpg'
+				},
+				{
+					id: '4',
+					title: '背景图',
+					img: 'http://blog-resource.bj.bcebos.com/photo/backg.jpg'
+				},
+				{
+					id: '5',
+					title: '海鸥',
+					img: 'http://blog-resource.bj.bcebos.com/photo/sea.jpg'
+				}
+
+			];
+			listItems();
+			function listItems() {
+				var ul_item = $('.div_items');
+				var _fragment = $('<div></div>');
+				var _html = '';
+				var _li_node;
+				for (var i = 0; i < list.length; i++) {
+					_li_node = $('<li class="div_item" data-id="' + list[i].id + '"></li>')
+					_html = '<img src="' + list[i].img + '" alt="" />';
+					_li_node.html(_html).appendTo(_fragment);
+				}
+				ul_item.append(_fragment.html());
+			}
+			function sliderPhoto(e) {
+				var id = $(this).attr('data-id');
+				sliderPhotoPlugin.listPhoto(e, list, id);
+			}
+			$(document).delegate('.div_item', 'click', sliderPhoto);
+		});
+	</script>
+</body>
+</html>
