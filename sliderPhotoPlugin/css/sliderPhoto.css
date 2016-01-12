@@ -1,0 +1,370 @@
+/*body,h1,h2,h3,h4,blockquote,p,dl,dt,dd,ul,ol,li,th,td, form,fieldset,legend,button,input,textarea{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 \5b8b\4f53,arial,sans-serif}
+body{color:#000;background:#ffffff;}
+button,input,select,textarea,h1,h2,h3,h4{font-size:100%}*/
+
+html,
+body {
+    {
+        margin: 0;
+        padding: 0
+    }
+}
+
+em,
+i {
+    font-style: normal
+}
+
+ol,
+ul.ulBigPic,
+ul.ulSmallPic {
+    list-style: none
+}
+
+img,
+fieldset {
+    border: 0;
+    vertical-align: middle
+}
+
+.clearfix:after {
+    content: "\20";
+    clear: both;
+    height: 0;
+    display: block;
+    overflow: hidden
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+.clear {
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    visibility: hidden
+}
+
+.fl,
+.mark {
+    float: left
+}
+
+.fr,
+.subMark {
+    float: right
+}
+
+.spanclass,
+.contentdiv {
+    display: none
+}
+
+
+/*a{color:#000;text-decoration:none}a:hover{color:#884400;text-decoration:underline}*/
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.f16 {
+    font-size: 16px;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+
+/* scrolltab */
+
+.scrolltab {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.scrolltab .ulBigPic {
+    width: 60%;
+    height: 365px;
+    margin: 30px auto 0;
+    overflow: hidden;
+}
+
+.scrolltab .ulBigPic li {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.scrolltab .ulBigPic .liSelected {
+    display: block;
+}
+
+.scrolltab .ulBigPic img {
+    border: 1px solid #dedede;
+    padding: 1px;
+    background-color: #fff;
+    width: 455px;
+    height: 341px;
+}
+
+.scrolltab .ulBigPic .sPic {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.scrolltab .bBtnLeft,
+.scrolltab .bBtnLeftSel,
+.scrolltab .bBtnLeftBan,
+.scrolltab .bBtnRight,
+.scrolltab .bBtnRightSel,
+.scrolltab .bBtnRightBan {
+    width: 38px;
+    height: 86px;
+    display: block;
+    position: absolute;
+    top: 190px;
+    background: url(../images/btn.png) no-repeat;
+}
+
+.scrolltab .bBtnLeft,
+.scrolltab .bBtnLeftSel,
+.scrolltab .bBtnRight,
+.scrolltab .bBtnRightSel {
+    cursor: pointer;
+}
+
+.scrolltab .bBtnLeft,
+.scrolltab .bBtnLeftSel,
+.scrolltab .bBtnLeftBan {
+    left: 10px;
+}
+
+.scrolltab .bBtnLeft {
+    background-position: -5px -2px;
+}
+
+.scrolltab .bBtnLeftSel {
+    background-position: -80px 0;
+}
+
+.scrolltab .bBtnLeftBan {
+    background-position: -161px 0;
+}
+
+.scrolltab .bBtnRight,
+.scrolltab .bBtnRightSel,
+.scrolltab .bBtnRightBan {
+    right: 10px;
+}
+
+.scrolltab .bBtnRight {
+    background-position: -36px 0;
+}
+
+.scrolltab .bBtnRightSel {
+    background-position: -116px 0;
+}
+
+.scrolltab .bBtnRightBan {
+    background-position: -192px 0;
+}
+
+.scrolltab .smallPicBox {
+    width: 100%;
+    height: 140px;
+    position: relative;
+    /*margin-top: 20px;*/
+}
+
+.scrolltab .smallPic {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    left: 53px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.scrolltab .smallPic ul {
+    position: absolute;
+    left: 0;
+    height: 100%;
+}
+
+.scrolltab .smallPic li {
+    width: 135px;
+    height: 120px;
+    border: 1px solid #fff;
+    padding: 1px 1px 0;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.scrolltab .smallPic .sPic {
+    width: 132px;
+    height: 100%;
+    display: block;
+}
+
+.scrolltab .smallPic .sPic img {
+    border: 1px solid #ddd;
+    padding: 1px;
+    width: 131px;
+    height: 96.67%;//116px;
+}
+
+.scrolltab .smallPic .sTitle {
+    width: 141px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    text-align: center;
+    color: #333;
+    overflow: hidden;
+}
+
+.scrolltab .smallPic .liSelected {
+    border-color: #e9c184;
+}
+
+.scrolltab .smallPic .liSelected .sPic img {
+    border-color: #fff;
+}
+
+.scrolltab .sBtnLeft,
+.scrolltab .sBtnLeftSel,
+.scrolltab .sBtnLeftBan,
+.scrolltab .sBtnRight,
+.scrolltab .sBtnRightSel,
+.scrolltab .sBtnRightBan {
+    width: 18px;
+    height: 37px;
+    display: block;
+    position: absolute;
+    top: 45px;
+    background: url(../images/btn.png) no-repeat;
+}
+
+.scrolltab .sBtnLeft,
+.scrolltab .sBtnLeftSel,
+.scrolltab .sBtnRight,
+.scrolltab .sBtnRightSel {
+    cursor: pointer;
+}
+
+.scrolltab .sBtnLeft,
+.scrolltab .sBtnLeftSel,
+.scrolltab .sBtnLeftBan {
+    left: 20px;
+}
+
+.scrolltab .sBtnLeft {
+    background-position: 0 -87px;
+}
+
+.scrolltab .sBtnLeftSel {
+    background-position: -36px -87px;
+}
+
+.scrolltab .sBtnLeftBan {
+    background-position: -73px -87px;
+}
+
+.scrolltab .sBtnRight,
+.scrolltab .sBtnRightSel,
+.scrolltab .sBtnRightBan {
+    right: 20px;
+}
+
+.scrolltab .sBtnRight {
+    background-position: -16px -87px;
+}
+
+.scrolltab .sBtnRightSel {
+    background-position: -52px -87px;
+}
+
+.scrolltab .sBtnRightBan {
+    background-position: -88px -87px;
+}
+
+.sliderPhoto {
+    position: fixed;
+    width: 920px;
+    height: 580px;
+    top: 50%;
+    left: 50%;
+    margin-top: -290px;
+    margin-left: -460px;
+    z-index: 11111;
+    border: 1px solid #95B8E7;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 1px #95B8E7;
+    display: none;
+    background-color: #fff;
+    opacity: 0;
+}
+
+h3.photoNums {
+    margin: 10px auto 0 auto;
+    padding: 0;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.close {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 11112;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    background: url('../images/close.png') center no-repeat;
+}
+
+.photoInfo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 11112;
+    width: 150px;
+    height: 100px;
+    margin-left: 10px;
+}
+
+.photoInfo .createTime {
+    margin-right: 10px;
+}
+
+/*弹窗*/
+#bg_modal {
+    background-color: #000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    display: none;
+    z-index: 2000;
+}
