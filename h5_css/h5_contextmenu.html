@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML DOM ContextMenu</title>
+	<style>
+		#customMenu {
+			position: absolute;
+			visibility: hidden;
+			background-color: silver;
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="myMenu">右击鼠标以打开自定义菜单</div>
+	<ul id="customMenu">
+		<li><a href="">Add</a></li>
+		<li><a href="">Delete</a></li>
+		<li><a href="">Share</a></li>
+	</ul>
+	<script>
+		(function() {
+			function addHandler(elem, type, handler) {
+				if (document.addEventListener) {
+					elem.addEventListener(type, handler);
+				}else if (document.attachEvent) {
+					elem.attachEvent('on' + type, handler);
+				}else {
+					elem['on' + type] = handler;
+				}
+			}
+			var menuDiv = document.getElementById('myMenu');
+			var menu = document.getElementById('customMenu');
+			addHandler(menuDiv, 'contextmenu', getMenu);
+			addHandler(document, 'click', hideMenu);
+			addHandler(window, 'beforeunload', checkClose);
+			function getMenu(event) {
+				event = event || window.event;
+				if (event.preventDefault){
+					event.preventDefault();
+				}else {
+					event.returnValue = false;
+				}
+				menu.style.left = event.clientX + 'px';
+				menu.style.top = event.clientY + 'px';
+				menu.style.visibility = 'visible';
+			}
+			function hideMenu(event) {
+				menu.style.visibility = 'hidden';
+			}
+			function checkClose(event) {
+				event = event || window.event;
+				var message = 'I\'m really going to miss you if you go.';
+				event.returnValue = message;
+				return message;
+			}
+		})();
+	</script>
+</body>
+</html>
