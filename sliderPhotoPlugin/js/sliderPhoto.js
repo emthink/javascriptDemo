@@ -319,11 +319,11 @@ var sliderPhotoPlugin = (function(){
         $('.sliderPhoto').animate({
             'opacity': '0'
         },{
-            'speed': 1000
+            'speed': 800
         });
         setTimeout(function() {
             $('.sliderPhoto').hide();
-        }, 1000);
+        }, 800);
     });
     /** [点击插件外插件浮窗消失] */
     $(document).on('click', function(e) {
@@ -335,11 +335,11 @@ var sliderPhotoPlugin = (function(){
                 _sliderPhoto.animate({
                     'opacity': '0'
                 },{
-                    'speed': 1000
+                    'speed': 800
                 });
                 setTimeout(function() {
                     _sliderPhoto.hide();
-                }, 1000);
+                }, 800);
                 $('#bg_modal').hide();
                 return false;
             }
