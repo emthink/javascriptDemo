@@ -120,33 +120,51 @@ var sliderPhotoPlugin = (function(){
 	
 	//小图左右按钮初始化
 	function sBtnLeftInit(){
-		if(allPic > 6) {
-			$("#sBtnRight").attr("class","sBtnRight");
+		// if (curPic > 5) {
+		// 	$("#sBtnLeft").attr("class", "sBtnLeft");
+		// }else {
+		// 	$("#sBtnLeft").attr("class","sBtnLeftBan");
+		// }
+		if (curPic - 2 > 0) {
+			$("#sBtnLeft").attr("class", "sBtnLeft");
+		}else {
+			$("#sBtnLeft").attr("class","sBtnLeftBan");
 		}
 	}
 	
 	function sBtnRightInit(){
-		if(curPic > 2 && (allPic-curPic) > 4) {
-			if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
-			if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
-		}else if(curPic < 3){
-			if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
-			if(allPic > 6) {
-				if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
-			}else{
-				if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
-			}
-		}else if(curPic > (allPic-4)) {
-			if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
-			if(allPic > 6) {
-				if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
-			}else{
-				if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
-			}
+		// if(curPic > 2 && (allPic-curPic) > 4) {
+		// 	if($("#sBtnLeft").attr("class") != "sBtnLeft") {$("#sBtnLeft").attr("class","sBtnLeft");}
+		// 	if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
+		// }else if(curPic < 3){
+		// 	if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
+		// 	if(allPic > 6) {
+		// 		if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
+		// 	}else{
+		// 		if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
+		// 	}
+		// }else if(curPic > (allPic-4)) {
+		// 	if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
+		// 	if(allPic > 6) {
+		// 		if($("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight");}
+		// 	}else{
+		// 		if($("#sBtnRight").attr("class") != "sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRightBan");}
+		// 	}
+		// }
+		// 
+		// if ((curPic + curPic%10) < allPic) {
+		// 	$("#sBtnRight").attr("class", "sBtnRightBan");
+		// }else {
+		// 	$("#sBtnRight").attr("class", "sBtnRight");
+		// }
+		if (curPic + 4 > allPic ) {
+			$("#sBtnRight").attr("class", "sBtnRightBan");
+		}else {
+			$("#sBtnRight").attr("class", "sBtnRight");
 		}
 	}
 	
-	//小图标签selected函数
+	//小图selected函数
 	function smallPicSelected(){
 		if(!$(".scrolltab .ulSmallPic li:eq("+curPic+")").hasClass("liSelected")) {
 			$(".scrolltab .ulSmallPic li:eq("+curPic+")").addClass("liSelected");
@@ -177,14 +195,16 @@ var sliderPhotoPlugin = (function(){
 		if(curPic != preShowPic) {
 			var leftPosition=0;
 			if(curPic>2 && curPic<($(".scrolltab .ulSmallPic li").length-3)) {
-				leftPosition=-(curPic-2)*147;
+				leftPosition=-(curPic-2)*139;
 			}else if(curPic > ($(".scrolltab .ulSmallPic li").length-4) && $(".scrolltab .ulSmallPic li").length>6) {
-				leftPosition=-($(".scrolltab .ulSmallPic li").length-6)*147;
+				leftPosition=-($(".scrolltab .ulSmallPic li").length-6)*139;
 			}
 			leftPosition+="px";
 			$(".scrolltab .ulSmallPic").attr("rel","moving");
 			$(".scrolltab .ulSmallPic").animate({left:leftPosition},200,function(){$(".scrolltab .ulSmallPic").attr("rel","stop");});
 		}
+		sBtnLeftInit();
+		sBtnRightInit();
 	}
 	
 	//大图按钮效果
@@ -229,52 +249,57 @@ var sliderPhotoPlugin = (function(){
 			if(curPic == (allPic-1)) {$("#bBtnRight").attr("class","bBtnRightBan");}
 			if(curPic > 0 && $("#bBtnLeft").attr("class")=="bBtnLeftBan") {$("#bBtnLeft").attr("class","bBtnLeft");}
 		}
-	})
+	});
 	
 	//小图左右按键效果
-	$(document).delegate('#sBtnRight', 'mouseover', function() {
-		if($(this).attr("class")=="sBtnRight") {
-			$(this).attr("class","sBtnRightSel");
+	$(document).delegate('#sBtnLeft', 'mouseover', function() {
+		if($(this).attr("class")=="sBtnLeft") {
+			$(this).attr("class","sBtnLeftSel");
 		}
 	});
-	$(document).delegate('#sBtnRight', 'mouseout', function() {
-		if($(this).attr("class")=="sBtnRightSel") {
-			$(this).attr("class","sBtnRight");
+	$(document).delegate('#sBtnLeft', 'mouseout', function() {
+		if($(this).attr("class")=="sBtnLeftSel") {
+			$(this).attr("class","sBtnLeft");
 		}
 	});
-	$(document).delegate('#sBtnRight', 'click', function() {
-		if($(this).attr("class")=="sBtnRightSel") {
+	$(document).delegate('#sBtnLeft', 'click', function() {
+		if($(this).attr("class")=="sBtnLeftSel") {
 			var leftPosition=$(".scrolltab .ulSmallPic").css("left");
 			var leftPositionNum=Number(leftPosition.substring(0,(leftPosition.length-2)));
-			leftPosition=leftPositionNum+147+"px";
-			if(leftPosition=="0px") {if($(this).attr("class") != "sBtnRightBan") {$(this).attr("class","sBtnRightBan");}}
-			var bestLeftNum=-($(".scrolltab .ulSmallPic li").length-6)*147;
-			if((leftPositionNum+147) > bestLeftNum && $("sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight")}
+			leftPosition=leftPositionNum+139+"px";
+			if(leftPosition=="0px") {if($(this).attr("class") != "sBtnLeftBan") {$(this).attr("class","sBtnLeftBan");}}
+			var bestLeftNum=($(".scrolltab .ulSmallPic li").length-6)*139;
+			if((leftPositionNum+139) > bestLeftNum && $("#sBtnLeft").attr("class") != "sBtnLeft") {$("#sBtnLeft").attr("class","sBtnLeft")}
+			if((leftPositionNum+280) >= 0 && $("#sBtnRight").attr("class") != "sBtnRight") {$("#sBtnRight").attr("class","sBtnRight")}
 			if($(".scrolltab .ulSmallPic").attr("rel")=="stop"){
 				$(".scrolltab .ulSmallPic").attr("rel","moving");
 				$(".scrolltab .ulSmallPic").stop();
 				$(".scrolltab .ulSmallPic").animate({left:leftPosition},200,function(){$(".scrolltab .ulSmallPic").attr("rel","stop");});
 			}
 		}
-	})
+	});
+	/** [小图右按钮鼠标划入事件] */
 	$(document).delegate('#sBtnRight', 'mouseover', function() {
 		if($(this).attr("class")=="sBtnRight") {
 			$(this).attr("class","sBtnRightSel");
 		}
 	});
+	/** [小图右按钮鼠标划出事件] */
 	$(document).delegate('#sBtnRight', 'mouseout', function() {
 		if($(this).attr("class")=="sBtnRightSel") {
 			$(this).attr("class","sBtnRight");
 		}
 	});
+	/** [小图右按钮点击事件] */
 	$(document).delegate('#sBtnRight', 'click', function() {
 		if($(this).attr("class")=="sBtnRightSel"){
 			var leftPosition=$(".scrolltab .ulSmallPic").css("left");
 			var leftPositionNum=Number(leftPosition.substring(0,(leftPosition.length-2)));
-			leftPosition=leftPositionNum-147+"px";
-			var bestLeftNum=-($(".scrolltab .ulSmallPic li").length-6)*147;
-			if((leftPositionNum-147)==bestLeftNum) {$(this).attr("class","sBtnRightBan");}
+			leftPosition=leftPositionNum-139+"px";
+			var bestLeftNum=-($(".scrolltab .ulSmallPic li").length-6)*139;
+			if((leftPositionNum-139)==bestLeftNum) {$(this).attr("class","sBtnRightBan");}
 			if(leftPositionNum==0 && $("#sBtnRight").attr("class")=="sBtnRightBan") {$("#sBtnRight").attr("class","sBtnRight");}
+			if(leftPositionNum==0 && $("#sBtnLeft").attr("class")=="sBtnLeftBan") {$("#sBtnLeft").attr("class","sBtnLeft");}
 			if($(".scrolltab .ulSmallPic").attr("rel")=="stop") {
 				$(".scrolltab .ulSmallPic").attr("rel","moving");
 				$(".scrolltab .ulSmallPic").stop();
@@ -282,11 +307,13 @@ var sliderPhotoPlugin = (function(){
 			}
 		}
 	});
+	/** [阻止插件浮窗点击事件冒泡至document] */
 	$(document).delegate('.sliderPhoto', 'click', function(e) {
         e = e || window.event;
         e.stopPropagation();
         return false;
     });
+    /** [点击关闭按钮插件浮窗关闭] */
     $(document).delegate('.closeSlider', 'click', function() {
         $('#bg_modal').hide(); 
         $('.sliderPhoto').animate({
@@ -298,6 +325,7 @@ var sliderPhotoPlugin = (function(){
             $('.sliderPhoto').hide();
         }, 1000);
     });
+    /** [点击插件外插件浮窗消失] */
     $(document).on('click', function(e) {
         var e = e || window.event;
         var target = e.target || e.srcElement;    
@@ -317,6 +345,11 @@ var sliderPhotoPlugin = (function(){
             }
         }
     });
+
+    /**
+     * [reInit 初始设置插件]
+     * @return {[type]} [description]
+     */
 	function reInit() {	
 		//小图li按键效果
 		for (var i=0;i<$(".scrolltab .ulSmallPic li").length;i++) {
@@ -330,16 +363,24 @@ var sliderPhotoPlugin = (function(){
 				});
 			}) (i);
 		}
-		// curPic = parseInt(window.localStorage.getItem('curPhotoNumber')) || 0;
 		curPic = curPhotoNumber || 0;
 		allPic = $(".scrolltab .ulBigPic li").length;
 		liMouseOn();
 		numInit("init");
 		bBtnInit();
 		sBtnLeftInit();
+		sBtnRightInit();
 		smallPicSelected();	
+		smallPicScroll();
 	}
 
+	/**
+	 * [listPhoto 初始化并设置插件数据]
+	 * @param  {[type]} e    [事件对象]
+	 * @param  {[type]} list [插件所需填充数据]
+	 * @param  {[type]} id   [所选择图片id]
+	 * @return {[type]}      [description]
+	 */
 	function listPhoto(e, list, id) {
 		        e = e || window.event;
 		        e.stopPropagation();

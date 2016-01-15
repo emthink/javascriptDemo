@@ -185,22 +185,23 @@ fieldset {
     width: 100%;
     height: 140px;
     position: relative;
+    text-align: center;
     /*margin-top: 20px;*/
 }
 
 .scrolltab .smallPic {
-    width: 90%;
+    width: 840px;
     height: 100%;
-    position: absolute;
-    left: 53px;
-    top: 0px;
+   position: relative;
+    margin: 0 auto;
     overflow: hidden;
 }
 
 .scrolltab .smallPic ul {
     position: absolute;
-    left: 0;
+    left: 0px;
     height: 100%;
+    padding-left: 0;
 }
 
 .scrolltab .smallPic li {
@@ -215,7 +216,7 @@ fieldset {
 }
 
 .scrolltab .smallPic .sPic {
-    width: 132px;
+    width: 135px;
     height: 100%;
     display: block;
 }
@@ -304,7 +305,7 @@ fieldset {
 
 .sliderPhoto {
     position: fixed;
-    width: 920px;
+    width: 940px;
     height: 580px;
     top: 50%;
     left: 50%;
