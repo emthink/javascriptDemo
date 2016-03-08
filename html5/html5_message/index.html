@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Html5 postMessage</title>
+	<style>
+		#otherWin {
+			width: 600px;
+			height: 400px;
+			background-color: #cccccc;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">open</button>
+	 <!-- 通过 iframe 嵌入子页面 --> 
+	 <iframe src="http://127.0.0.1:3004/win.html" 
+				 id="otherWin"></iframe> 
+	 <br/><br/> 
+	 <input type="text" id="message"><input type="button" 
+			 value="Send to child.com" id="sendMessage" /> 
+	<script>
+		window.onload = function() {
+
+			var btn = document.getElementById('btn');
+			var sendBtn = document.getElementById('sendMessage');
+			var win = window.open('http://127.0.0.1:3004/win.html', 'popUp');
+			btn.onclick = function() {
+				win.postMessage('Hello', 'http://127.0.0.1:3004/');
+			}
+			function sendIt(e){ 
+		 		// 通过 postMessage 向子窗口发送数据
+		 		document.getElementById("otherWin").contentWindow 
+			 	.postMessage( 
+				 	document.getElementById("message").value, 
+					"http://127.0.0.1:3004/"); 
+			} 
+			sendBtn.onclick = function(e) {
+				sendIt(e);
+			};
+		};
+	</script>
+</body>
+</html>

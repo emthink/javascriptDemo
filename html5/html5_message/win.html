@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Html5 postMessage</title>
+	<style>
+		#txt {
+			width: 500px;
+			height: 300px;
+			background-color: #cccccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>The New Window</h1>
+	<div id="txt"></div>
+	<!-- <div id="txt">e</div> -->
+	<script>
+		
+		window.onload = function() {
+			var text = document.getElementById('txt');
+			
+			function receiveMsg(e) {
+				console.log("Got a message!");
+				console.log("\nMessage: " + e.data);
+				console.log("\nOrigin: " + e.origin);
+				// console.log("Source: " + e.source);
+				text.innerHTML = "Got a message!<br>" +
+					"Message: " + e.data +
+					"<br>Origin: " + e.origin;
+
+
+			}
+
+
+
+			if (window.addEventListener) {
+				window.addEventListener('message', receiveMsg, false);
+			}else {
+				window.attachEvent('message', receiveMsg);
+			}
+		};
+	</script>
+</body>
+</html>
