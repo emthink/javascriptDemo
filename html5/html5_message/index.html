@@ -13,8 +13,9 @@
 </head>
 <body>
 	<button id="btn">open</button>
+	<button id="send">send</button>
 	 <!-- 通过 iframe 嵌入子页面 --> 
-	 <iframe src="http://127.0.0.1:3004/win.html" 
+	 <iframe src="http://jhssdemo.duapp.com/demo/h5_postmessage/win.html" 
 				 id="otherWin"></iframe> 
 	 <br/><br/> 
 	 <input type="text" id="message"><input type="button" 
@@ -23,17 +24,21 @@
 		window.onload = function() {
 
 			var btn = document.getElementById('btn');
+			var btn_send = document.getElementById('send');
 			var sendBtn = document.getElementById('sendMessage');
-			var win = window.open('http://127.0.0.1:3004/win.html', 'popUp');
+			var win;
 			btn.onclick = function() {
-				win.postMessage('Hello', 'http://127.0.0.1:3004/');
+				win = window.open('http://jhssdemo.duapp.com/demo/h5_postmessage/win.html', 'popUp');
+			}
+			btn_send.onclick = function() {			
+				win.postMessage('Hello', 'http://jhssdemo.duapp.com/');
 			}
 			function sendIt(e){ 
 		 		// 通过 postMessage 向子窗口发送数据
 		 		document.getElementById("otherWin").contentWindow 
 			 	.postMessage( 
 				 	document.getElementById("message").value, 
-					"http://127.0.0.1:3004/"); 
+					"http://jhssdemo.duapp.com/"); 
 			} 
 			sendBtn.onclick = function(e) {
 				sendIt(e);
